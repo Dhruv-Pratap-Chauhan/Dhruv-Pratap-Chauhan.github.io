@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhruv Pratap Chauhan | Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 5rem 1rem 3rem;
+      background: rgba(0,0,0,0.5);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      color: #61dafb;
+      margin-top: 0.5rem;
+    }
+
+    .typing {
+      border-right: 3px solid #61dafb;
+      display: inline-block;
+      animation: blink 0.7s infinite;
+    }
+
+    nav {
+      margin-top: 1.5rem;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #61dafb;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #61dafb;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      border-left: 5px solid #61dafb;
+      padding-left: 10px;
+    }
+
+    .projects a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 18px;
+      background: #61dafb;
+      color: #1f1c2c;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .projects a:hover {
+      background: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(97, 218, 251, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      background: rgba(0,0,0,0.5);
+    }
+    footer p {
+      color: #bbb;
+    }
+
+    /* GAME SECTION */
+    #gameCanvas {
+      background: #111;
+      border: 2px solid #61dafb;
+      display: block;
+      margin: 1rem auto;
+    }
+
+    /* Animations */
+    @keyframes blink { 50% { border-color: transparent; } }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>✨ Dhruv Pratap Chauhan ✨</h1>
+    <p><span id="typing" class="typing"></span></p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#games">Games</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi! I'm <strong>Dhruv</strong>, a fresher in college exploring the world of coding 🚀.  
+      I love learning new technologies, building fun projects, and creating cool stuff on the internet.  
+      This is just the beginning of my journey 🌟.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <a href="https://github.com/DHRUV-PRATAP-CHAUHAN" target="_blank">🌟 GitHub Profile</a>
+      <a href="#">⚡ Beginner Portfolio</a>
+      <a href="#">🎮 Fun Game Project</a>
+    </div>
+  </section>
+
+  <section id="games">
+    <h2>🎮 Play a Game!</h2>
+    <p>Take a break & play Snake 🐍</p>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📧 Email: <a href="mailto:your-email@example.com" style="color:#61dafb;">your-email@example.com</a></p>
+    <p>🐦 Twitter: <a href="https://twitter.com/YOUR_USERNAME" target="_blank" style="color:#61dafb;">@YOUR_USERNAME</a></p>
+    <p>📸 Instagram: <a href="https://instagram.com/YOUR_USERNAME" target="_blank" style="color:#61dafb;">@YOUR_USERNAME</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Dhruv Pratap Chauhan | Built with 💙 GitHub Pages</p>
+  </footer>
+
+  <script>
+    // Typing Effect
+    const roles = ["Fresher", "Learner", "Explorer", "Developer"];
+    let i = 0, j = 0, current = "", isDeleting = false;
+    function typeEffect() {
+      current = roles[i];
+      document.getElementById("typing").textContent = 
+        current.substring(0, j);
+      if (!isDeleting && j < current.length) {
+        j++; setTimeout(typeEffect, 150);
+      } else if (isDeleting && j > 0) {
+        j--; setTimeout(typeEffect, 80);
+      } else if (!isDeleting && j === current.length) {
+        isDeleting = true; setTimeout(typeEffect, 1000);
+      } else {
+        isDeleting = false; i = (i+1) % roles.length; setTimeout(typeEffect, 200);
+      }
+    }
+    typeEffect();
+
+    // Section reveal animation
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, {threshold: 0.2});
+    sections.forEach(sec => observer.observe(sec));
+
+    // Snake Game
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    let box = 20;
+    let snake = [{x: 9*box, y:10*box}];
+    let food = {x: Math.floor(Math.random()*19)*box, y: Math.floor(Math.random()*19)*box};
+    let d;
+    document.addEventListener("keydown", direction);
+    function direction(event) {
+      if(event.keyCode == 37 && d != "RIGHT") d = "LEFT";
+      else if(event.keyCode == 38 && d != "DOWN") d = "UP";
+      else if(event.keyCode == 39 && d != "LEFT") d = "RIGHT";
+      else if(event.keyCode == 40 && d != "UP") d = "DOWN";
+    }
+    function draw() {
+      ctx.fillStyle = "#111"; ctx.fillRect(0,0,400,400);
+      for(let i=0;i<snake.length;i++){
+        ctx.fillStyle = (i==0)?"#61dafb":"white";
+        ctx.fillRect(snake[i].x,snake[i].y,box,box);
+      }
+      ctx.fillStyle = "red";
+      ctx.fillRect(food.x,food.y,box,box);
+
+      let snakeX = snake[0].x;
+      let snakeY = snake[0].y;
+      if(d=="LEFT") snakeX -= box;
+      if(d=="UP") snakeY -= box;
+      if(d=="RIGHT") snakeX += box;
+      if(d=="DOWN") snakeY += box;
+
+      if(snakeX==food.x && snakeY==food.y){
+        food = {x: Math.floor(Math.random()*19)*box, y: Math.floor(Math.random()*19)*box};
+      } else {
+        snake.pop();
+      }
+
+      let newHead = {x:snakeX, y:snakeY};
+      if(snakeX<0 || snakeY<0 || snakeX>=400 || snakeY>=400 || collision(newHead,snake)){
+        clearInterval(game); alert("Game Over! Refresh to play again.");
+      }
+      snake.unshift(newHead);
+    }
+    function collision(head, array){
+      for(let i=0;i<array.length;i++){
+        if(head.x==array[i].x && head.y==array[i].y) return true;
+      }
+      return false;
+    }
+    let game = setInterval(draw,100);
+  </script>
+</body>
+</html>
