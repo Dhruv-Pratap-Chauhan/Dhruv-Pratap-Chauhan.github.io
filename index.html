@@ -6,62 +6,70 @@
 <title>Dhruv Pratap Chauhan | Portfolio</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
 body{
   font-family:'Poppins',sans-serif;
   background:radial-gradient(circle at top,#0f2027,#203a43,#2c5364);
-  color:#fff; overflow-x:hidden;
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
-header{ text-align:center; padding:2.5rem 1rem 1.5rem; background:rgba(0,0,0,0.35); border-bottom:2px solid #61dafb }
-header img{ width:110px; height:110px; border-radius:50%; border:3px solid #61dafb; display:block; margin:0.25rem auto 0.75rem; }
-header h1{ font-size:2rem; font-weight:700 }
-header p{ color:#61dafb; margin-top:0.25rem }
-.typing{ border-right:3px solid #61dafb; display:inline-block; animation:blink .7s infinite }
+header{
+  text-align:center;padding:2.5rem 1rem 1.25rem;background:rgba(0,0,0,0.35);
+  border-bottom:2px solid #61dafb;
+}
+header img{width:110px;height:110px;border-radius:999px;border:3px solid #61dafb;display:block;margin:0.25rem auto 0.75rem}
+header h1{font-size:1.9rem;font-weight:700}
+header p{color:#61dafb;margin-top:0.25rem}
+.typing{border-right:3px solid #61dafb;display:inline-block;animation:blink .7s infinite}
 
-nav{ margin-top:0.8rem; text-align:center }
-nav button{ margin:6px 6px; padding:8px 14px; border:none; border-radius:8px; background:#61dafb; color:#1f1c2c; font-weight:600; cursor:pointer; box-shadow:0 0 8px #61dafb }
-nav button:hover{ transform:scale(1.04) }
+nav{margin-top:0.8rem;text-align:center}
+nav button{margin:6px 6px;padding:8px 14px;border-radius:8px;border:none;background:#61dafb;color:#111;font-weight:600;cursor:pointer;box-shadow:0 0 8px #61dafb}
+nav button:hover{transform:scale(1.03)}
+
+.container{max-width:980px;margin:1.25rem auto;padding:1.2rem}
 
 section{
-  max-width:980px; margin:1.25rem auto; padding:1.2rem; border-radius:12px;
-  background: rgba(255,255,255,0.03); backdrop-filter: blur(6px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.45);
-  opacity:0; transform:translateY(20px); transition:all .7s ease;
+  margin:1.25rem auto;border-radius:12px;padding:1.2rem;background:rgba(255,255,255,0.03);
+  box-shadow:0 10px 30px rgba(0,0,0,0.45);opacity:0;transform:translateY(20px);transition:all .7s ease
 }
-section.show{ opacity:1; transform:translateY(0) }
+section.show{opacity:1;transform:translateY(0)}
+h2{font-size:1.35rem;margin-bottom:.75rem;padding-left:10px;border-left:4px solid #61dafb}
+.projects a{display:inline-block;margin:8px;padding:10px 14px;border-radius:8px;background:#61dafb;color:#111;font-weight:600;text-decoration:none}
+.projects a:hover{transform:scale(1.03)}
 
-h2{ font-size:1.4rem; margin-bottom:0.75rem; padding-left:10px; border-left:4px solid #61dafb }
-.projects a{ display:inline-block; margin:8px; padding:10px 14px; border-radius:8px; background:#61dafb; color:#1f1c2c; text-decoration:none; font-weight:600 }
-.projects a:hover{ background:#fff; transform:scale(1.03) }
+.map-preview{width:100%;border-radius:10px;margin-top:.75rem;display:block;transition:transform .25s,box-shadow .25s}
+.map-preview:hover{transform:scale(1.02);box-shadow:0 10px 30px rgba(97,218,251,0.35)}
 
-.map-preview{ width:100%; border-radius:10px; transition: transform .25s ease, box-shadow .25s ease; display:block; margin-top:0.75rem }
-.map-preview:hover{ transform:scale(1.02); box-shadow:0 10px 30px rgba(97,218,251,0.35) }
+#game-tabs{ text-align:center;margin-bottom:.8rem }
+#game-tabs button{ margin:0 8px;padding:6px 12px;border-radius:8px;border:none;background:#61dafb;color:#111;font-weight:600;cursor:pointer }
+#game-tabs button.active{ box-shadow:0 0 18px rgba(97,218,251,0.5) }
 
-#game-tabs{ text-align:center; margin-bottom:0.75rem }
-#game-tabs button{ margin:0 6px; padding:6px 12px; border-radius:8px; border:none; background:#61dafb; color:#111; font-weight:600; cursor:pointer }
 .game{ display:none; text-align:center; margin-top:1rem }
-.game.active{ display:block }
-canvas{ display:block; margin:0.8rem auto; background:#0b0b0b; border-radius:10px; border:2px solid #61dafb; }
-.score{ font-weight:700; margin-bottom:0.4rem; text-align:center }
+.game.active{ display:block; }
 
-.mobile-controls{ display:flex; gap:8px; justify-content:center; margin:0.5rem 0 }
-.mobile-controls button{ padding:8px 12px; border-radius:8px; border:none; background:#61dafb; color:#111; font-weight:700; cursor:pointer }
+/* Canvas styles */
+canvas{ display:block;margin:0.8rem auto;background:#070809;border-radius:10px;border:2px solid #61dafb }
 
-footer{ text-align:center; margin-top:1.5rem; padding:1rem 0; color:#cfdfe8 }
+/* Scores & controls */
+.score{ font-weight:700;text-align:center;margin-bottom:.4rem }
+.controls{ display:flex; gap:8px; justify-content:center; margin-top:.6rem }
+.controls button{ padding:8px 12px;border-radius:8px;border:none; background:#61dafb;color:#111;font-weight:700;cursor:pointer }
+.mobile-controls{ display:flex; gap:8px; justify-content:center; margin-top:0.5rem }
+.mobile-controls button{ padding:8px 12px;border-radius:8px;border:none;background:#61dafb;color:#111;font-weight:700;cursor:pointer }
 
-/* responsive adjustments */
+/* footer */
+footer{ text-align:center;margin-top:1.25rem;padding:1rem 0;color:#cfe }
+@keyframes blink{50%{border-color:transparent}}
 @media (max-width:720px){
   canvas{ width:92% !important; height:auto !important }
-  header h1{ font-size:1.6rem }
-  nav button{ padding:7px 10px }
 }
-@keyframes blink{50%{border-color:transparent}}
 </style>
 </head>
 <body>
 
 <header>
-  <img src="https://files.catbox.moe/kz07cq.jpg" alt="Profile">
+  <img src="https://files.catbox.moe/kz07cq.jpg" alt="Profile pic">
   <h1>✨ Dhruv Pratap Chauhan ✨</h1>
   <p><span id="typing" class="typing"></span></p>
   <nav>
@@ -72,375 +80,347 @@ footer{ text-align:center; margin-top:1.5rem; padding:1rem 0; color:#cfdfe8 }
   </nav>
 </header>
 
-<section id="about">
-  <h2>About</h2>
-  <p>Hi — I'm <strong>Dhruv</strong>, a fresher at <strong>UPES Dehradun</strong>. I learn fast, build things, and love making interactive web stuff.</p>
+<div class="container">
+  <section id="about">
+    <h2>About</h2>
+    <p>Hi — I'm <strong>Dhruv</strong>, a fresher at <strong>UPES Dehradun</strong>. I build interactive web things and learn constantly.</p>
 
-  <!-- clickable screenshot preview (replace with your uploaded screenshot) -->
-  <a href="https://maps.app.goo.gl/GuEYiXHQpgfUDdJ58" target="_blank" rel="noopener">
-    <img class="map-preview" src="https://files.catbox.moe/q7o8fs.jpg" alt="UPES Dehradun - click to open" title="Click to open Google Maps">
-  </a>
-</section>
+    <!-- clickable screenshot (your uploaded screenshot) -->
+    <a href="https://maps.app.goo.gl/GuEYiXHQpgfUDdJ58" target="_blank" rel="noopener">
+      <img class="map-preview" src="https://files.catbox.moe/q7o8fs.jpg" alt="UPES screenshot (click to open maps)">
+    </a>
+  </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="projects">
-    <a href="https://github.com/DHRUV-PRATAP-CHAUHAN" target="_blank" rel="noopener">🌟 GitHub</a>
-    <a href="#">⚡ Portfolio</a>
-    <a href="#">🎮 Games</a>
-  </div>
-</section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <a href="https://github.com/DHRUV-PRATAP-CHAUHAN" target="_blank" rel="noopener">🌟 GitHub</a>
+      <a href="#">⚡ Portfolio</a>
+      <a href="#">🎮 Games</a>
+    </div>
+  </section>
 
-<section id="games">
-  <h2>Play — Mini Game Hub</h2>
-  <div id="game-tabs">
-    <button onclick="switchGame('snake')">🐍 Snake</button>
-    <button onclick="switchGame('paddle')">🕹 Paddle</button>
-    <button onclick="switchGame('dino')">🦖 Dino</button>
-  </div>
-
-  <!-- SNAKE -->
-  <div id="snake" class="game active">
-    <div class="score">Score: <span id="snakeScore">0</span></div>
-    <canvas id="snakeCanvas" width="400" height="400"></canvas>
-
-    <div class="mobile-controls" aria-hidden="false">
-      <button onclick="snakeMove('UP')">⬆️</button>
-      <button onclick="snakeMove('LEFT')">⬅️</button>
-      <button onclick="snakeMove('RIGHT')">➡️</button>
-      <button onclick="snakeMove('DOWN')">⬇️</button>
+  <section id="games">
+    <h2>Mini Game Hub</h2>
+    <div id="game-tabs">
+      <button id="tab-snake" class="active" onclick="activateTab('snake')">🐍 Snake</button>
+      <button id="tab-dino" onclick="activateTab('dino')">🦖 Dino</button>
+      <button id="tab-paddle" onclick="activateTab('paddle')">🕹 Paddle</button>
     </div>
 
-    <div style="display:flex;gap:10px;justify-content:center;margin-top:8px">
-      <button id="startSnake" style="padding:8px 12px">▶️ Start</button>
-      <button id="restartSnake" style="padding:8px 12px">🔄 Restart</button>
-    </div>
-  </div>
+    <!-- Snake -->
+    <div id="snake" class="game active">
+      <div class="score">Score: <span id="snakeScore">0</span></div>
+      <canvas id="snakeCanvas" width="400" height="400"></canvas>
 
-  <!-- PADDLE -->
-  <div id="paddle" class="game">
-    <div class="score">Score: <span id="padScore">0</span></div>
-    <canvas id="padCanvas" width="500" height="300"></canvas>
+      <div class="mobile-controls" aria-hidden="false">
+        <button onclick="snakeMove('UP')">⬆️</button>
+        <button onclick="snakeMove('LEFT')">⬅️</button>
+        <button onclick="snakeMove('RIGHT')">➡️</button>
+        <button onclick="snakeMove('DOWN')">⬇️</button>
+      </div>
 
-    <div style="display:flex;gap:10px;justify-content:center;margin-top:8px">
-      <button id="startPaddle" style="padding:8px 12px">▶️ Start</button>
-      <button id="restartPaddle" style="padding:8px 12px">🔄 Restart</button>
-    </div>
-    <p style="text-align:center;font-size:12px;color:#cfe;margin-top:6px">Move paddle: mouse / touch</p>
-  </div>
-
-  <!-- DINO -->
-  <div id="dino" class="game">
-    <div class="score">Score: <span id="dinoScore">0</span></div>
-    <canvas id="dinoCanvas" width="500" height="200"></canvas>
-
-    <div class="mobile-controls">
-      <button onclick="dinoJump()">⏫ Jump</button>
+      <div class="controls">
+        <button id="startSnake">▶️ Start</button>
+        <button id="restartSnake">🔄 Restart</button>
+      </div>
     </div>
 
-    <div style="display:flex;gap:10px;justify-content:center;margin-top:8px">
-      <button id="startDino" style="padding:8px 12px">▶️ Start</button>
-      <button id="restartDino" style="padding:8px 12px">🔄 Restart</button>
-    </div>
-  </div>
-</section>
+    <!-- Dino -->
+    <div id="dino" class="game">
+      <div class="score">Score: <span id="dinoScore">0</span></div>
+      <canvas id="dinoCanvas" width="500" height="200"></canvas>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>📧 <a href="mailto:dhruvpratapchauhan7@gmail.com" style="color:#61dafb">dhruvpratapchauhan7@gmail.com</a></p>
-  <p>📸 Instagram: <a href="https://instagram.com/dhruvpratapchauhan" target="_blank" rel="noopener" style="color:#61dafb">@dhruvpratapchauhan</a></p>
-  <p>🐦 Twitter: <a href="https://twitter.com/0xrajputdhruv" target="_blank" rel="noopener" style="color:#61dafb">@0xrajputdhruv</a></p>
-  <p>📨 Telegram: <a href="https://t.me/protoic" target="_blank" rel="noopener" style="color:#61dafb">@protoic</a></p>
-</section>
+      <div class="mobile-controls">
+        <button onclick="dinoJump()">⏫ Jump</button>
+      </div>
+
+      <div class="controls">
+        <button id="startDino">▶️ Start</button>
+        <button id="restartDino">🔄 Restart</button>
+      </div>
+    </div>
+
+    <!-- Paddle -->
+    <div id="paddle" class="game">
+      <div class="score">Score: <span id="padScore">0</span></div>
+      <canvas id="padCanvas" width="500" height="300"></canvas>
+
+      <div class="controls">
+        <button id="startPaddle">▶️ Start</button>
+        <button id="restartPaddle">🔄 Restart</button>
+      </div>
+      <p style="text-align:center;color:#cfe;margin-top:6px;font-size:12px">Use mouse/touch to move the paddle</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📧 <a href="mailto:dhruvpratapchauhan7@gmail.com" style="color:#61dafb">dhruvpratapchauhan7@gmail.com</a></p>
+    <p>📸 <a href="https://instagram.com/dhruvpratapchauhan" target="_blank" rel="noopener" style="color:#61dafb">@dhruvpratapchauhan</a></p>
+    <p>🐦 <a href="https://twitter.com/0xrajputdhruv" target="_blank" rel="noopener" style="color:#61dafb">@0xrajputdhruv</a></p>
+    <p>✉️ <a href="https://t.me/protoic" target="_blank" rel="noopener" style="color:#61dafb">@protoic</a></p>
+  </section>
+</div>
 
 <footer>
-  <p>© 2025 Dhruv Pratap Chauhan — Built with GitHub Pages</p>
+  <p>© 2025 Dhruv Pratap Chauhan — Built on GitHub Pages</p>
 </footer>
 
 <script>
-/* ---------------- Helpers ---------------- */
+/* ----------------- Small helpers ----------------- */
 function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
-function switchGame(id){
-  document.querySelectorAll('.game').forEach(g=>g.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-/* Typing */
-const roles=['Fresher','Learner','Explorer','Developer'];
-let rI=0, rJ=0, rDel=false;
-(function typing(){
-  const cur=roles[rI];
-  document.getElementById('typing').textContent=cur.substring(0,rJ);
-  if(!rDel && rJ<cur.length){ rJ++; setTimeout(typing,120); }
-  else if(rDel && rJ>0){ rJ--; setTimeout(typing,70); }
-  else if(!rDel && rJ===cur.length){ rDel=true; setTimeout(typing,900); }
-  else { rDel=false; rI=(rI+1)%roles.length; setTimeout(typing,180); }
+
+/* Typing effect */
+const roles = ['Fresher','Learner','Explorer','Developer'];
+let ri=0,rj=0,rdel=false;
+(function typer(){
+  const cur = roles[ri];
+  document.getElementById('typing').textContent = cur.substring(0,rj);
+  if(!rdel && rj < cur.length){ rj++; setTimeout(typer,120); }
+  else if(rdel && rj>0){ rj--; setTimeout(typer,70); }
+  else if(!rdel && rj===cur.length){ rdel=true; setTimeout(typer,900); }
+  else{ rdel=false; ri=(ri+1)%roles.length; setTimeout(typer,180); }
 })();
 
-/* Section reveal */
-const sections=document.querySelectorAll('section');
-const obs=new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); }); },{threshold:0.18});
-sections.forEach(s=>obs.observe(s));
+/* Section observer (single observer name — no duplicates) */
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(en => { if(en.isIntersecting) en.target.classList.add('show'); });
+}, { threshold: 0.18 });
 
-/* ---------------- Sounds ----------------
- lightweight hosted audio. If any fails to load, it's non-fatal.
-*/
+document.querySelectorAll('section').forEach(s => sectionObserver.observe(s));
+
+/* Tab handling (activates tab visuals + game visibility) */
+function activateTab(tabId){
+  // tab buttons visuals
+  document.getElementById('tab-snake').classList.toggle('active', tabId === 'snake');
+  document.getElementById('tab-dino').classList.toggle('active', tabId === 'dino');
+  document.getElementById('tab-paddle').classList.toggle('active', tabId === 'paddle');
+
+  // show/hide games
+  ['snake','dino','paddle'].forEach(id => {
+    const el = document.getElementById(id);
+    if(id === tabId){ el.classList.add('active'); } else { el.classList.remove('active'); }
+  });
+}
+
+/* ---------------- Sounds (safe playback) --------------- */
+/* hosted short effects (CDN). If playback blocked, code continues. */
 const sounds = {
   score: new Audio('https://cdn.jsdelivr.net/gh/jweir/sounds@main/point.wav'),
   jump:  new Audio('https://cdn.jsdelivr.net/gh/jweir/sounds@main/jump.wav'),
   death: new Audio('https://cdn.jsdelivr.net/gh/jweir/sounds@main/hit.wav')
 };
 function playSound(name){
-  try{ if(sounds[name]){ sounds[name].currentTime=0; sounds[name].play().catch(()=>{}); } }catch(e){}
+  try{
+    const a = sounds[name];
+    if(a){ a.currentTime = 0; a.play().catch(()=>{}); }
+  }catch(e){}
 }
 
-/* ================= SNAKE ================= */
-const sCanvas = document.getElementById('snakeCanvas');
-const sCtx = sCanvas.getContext('2d');
-let sBox=20, sSnake, sFood, sScore=0, sDir=null, sInterval=null, sPreviewAnim=0;
+/* ===================== SNAKE ===================== */
+const sCanvas = document.getElementById('snakeCanvas'), sCtx = sCanvas.getContext('2d');
+let sBox = 20, sSnake = [{x:9*sBox,y:10*sBox}], sFood = {x:200,y:200}, sScore = 0, sDir = null, sInterval = null, sPreview = 0;
 
-function randomFood(){
-  sFood = { x: Math.floor(Math.random()* (sCanvas.width/sBox) )*sBox,
-            y: Math.floor(Math.random()* (sCanvas.height/sBox) )*sBox };
+function sRandomFood(){
+  sFood.x = Math.floor(Math.random() * (sCanvas.width / sBox)) * sBox;
+  sFood.y = Math.floor(Math.random() * (sCanvas.height / sBox)) * sBox;
 }
-function collides(head,array){ return array.some(p=>p.x===head.x && p.y===head.y); }
 
-function drawSnakeFrame(){
-  sCtx.fillStyle = '#07090a';
+function sCollide(head, arr){ return arr.some(p => p.x===head.x && p.y===head.y); }
+
+function sDraw(){
+  // clear
+  sCtx.fillStyle = '#070809';
   sCtx.fillRect(0,0,sCanvas.width,sCanvas.height);
 
-  // draw food (bigger/gem look)
+  // draw food (glow)
   sCtx.save();
-  sCtx.shadowColor = '#ff6b6b';
-  sCtx.shadowBlur = 12;
-  sCtx.fillStyle = '#ff4d4d';
-  sCtx.fillRect(sFood.x - 2, sFood.y -2, sBox+4, sBox+4);
+  sCtx.shadowBlur = 12; sCtx.shadowColor = '#ff6b6b';
+  sCtx.fillStyle = '#ff4d4d'; sCtx.fillRect(sFood.x, sFood.y, sBox, sBox);
   sCtx.restore();
 
-  // snake body
-  sSnake.forEach((p,i)=>{
+  // draw snake
+  sSnake.forEach((p,i) => {
     sCtx.fillStyle = i===0 ? '#7fe2ff' : '#cfeff7';
     sCtx.fillRect(p.x,p.y,sBox,sBox);
   });
 
-  // move head
+  // move
   let X = sSnake[0].x, Y = sSnake[0].y;
-  if(sDir==='LEFT') X-=sBox;
-  if(sDir==='RIGHT') X+=sBox;
-  if(sDir==='UP') Y-=sBox;
-  if(sDir==='DOWN') Y+=sBox;
+  if(sDir === 'LEFT') X -= sBox;
+  if(sDir === 'RIGHT') X += sBox;
+  if(sDir === 'UP') Y -= sBox;
+  if(sDir === 'DOWN') Y += sBox;
 
-  // if eats food
-  if(X===sFood.x && Y===sFood.y){
-    sScore++; document.getElementById('snakeScore').textContent=sScore;
-    randomFood(); playSound('score');
+  // eat
+  if(X === sFood.x && Y === sFood.y){
+    sScore++; document.getElementById('snakeScore').textContent = sScore; playSound('score');
+    sRandomFood();
   } else {
     sSnake.pop();
   }
 
   const head = {x:X,y:Y};
-  if(X<0||Y<0||X>=sCanvas.width||Y>=sCanvas.height||collides(head,sSnake)){
-    clearInterval(sInterval); sInterval=null; playSound('death'); setTimeout(()=>alert('Snake: Game Over!'),50);
-    return;
+  if(X < 0 || Y < 0 || X >= sCanvas.width || Y >= sCanvas.height || sCollide(head, sSnake)){
+    clearInterval(sInterval); sInterval = null; playSound('death'); setTimeout(()=>alert('Snake: Game Over!'),50); return;
   }
   sSnake.unshift(head);
 }
 
-function drawSnakePreview(){
-  // simple idle preview: snake head slowly moves back/forth and food pulses
-  sPreviewAnim++;
-  sCtx.fillStyle = '#07090a'; sCtx.fillRect(0,0,sCanvas.width,sCanvas.height);
-
-  // snake static center
+/* preview */
+function sDrawPreview(){
+  sPreview++;
+  sCtx.fillStyle = '#070809'; sCtx.fillRect(0,0,sCanvas.width,sCanvas.height);
   const midX = Math.floor(sCanvas.width/2 / sBox) * sBox;
   const midY = Math.floor(sCanvas.height/2 / sBox) * sBox;
   sCtx.fillStyle = '#7fe2ff'; sCtx.fillRect(midX, midY, sBox, sBox);
   sCtx.fillStyle = '#cfeff7'; sCtx.fillRect(midX - sBox, midY, sBox, sBox);
-
   // pulsing food
-  const pulse = 1 + Math.sin(sPreviewAnim/10)*0.12;
-  sCtx.save();
-  sCtx.shadowColor = '#ff6b6b';
-  sCtx.shadowBlur = 8;
-  sCtx.fillStyle = '#ff4d4d';
-  const fx = midX + 3*sBox;
-  const fy = midY;
+  sCtx.save(); sCtx.shadowBlur = 8; sCtx.shadowColor = '#ff6b6b'; sCtx.fillStyle = '#ff4d4d';
+  const pulse = 1 + Math.sin(sPreview/10)*0.12;
+  const fx = midX + 3*sBox, fy = midY;
   sCtx.fillRect(fx - (2*pulse), fy - (2*pulse), sBox + 4*pulse, sBox + 4*pulse);
   sCtx.restore();
 }
 
-/* Snake controls for mobile buttons */
+/* input handlers */
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowLeft' && sDir !== 'RIGHT') sDir = 'LEFT';
+  if(e.key === 'ArrowRight' && sDir !== 'LEFT') sDir = 'RIGHT';
+  if(e.key === 'ArrowUp' && sDir !== 'DOWN') sDir = 'UP';
+  if(e.key === 'ArrowDown' && sDir !== 'UP') sDir = 'DOWN';
+  // WASD
+  if((e.key==='a' || e.key==='A') && sDir!=='RIGHT') sDir='LEFT';
+  if((e.key==='d' || e.key==='D') && sDir!=='LEFT') sDir='RIGHT';
+  if((e.key==='w' || e.key==='W') && sDir!=='DOWN') sDir='UP';
+  if((e.key==='s' || e.key==='S') && sDir!=='UP') sDir='DOWN';
+});
+
 function snakeMove(dir){ sDir = dir; }
 
+/* start/restart */
 document.getElementById('startSnake').addEventListener('click', ()=>{
-  // initialize game state
-  sSnake = [{x:9*sBox,y:10*sBox}];
-  sScore = 0; sDir = null; document.getElementById('snakeScore').textContent = 0;
-  randomFood();
+  sSnake = [{x:9*sBox,y:10*sBox}]; sScore=0; sDir=null; document.getElementById('snakeScore').textContent='0'; sRandomFood();
   if(sInterval) clearInterval(sInterval);
-  sInterval = setInterval(drawSnakeFrame, 100);
+  sInterval = setInterval(sDraw, 100);
 });
 document.getElementById('restartSnake').addEventListener('click', ()=>{
   if(sInterval) clearInterval(sInterval);
-  sSnake = [{x:9*sBox,y:10*sBox}];
-  sScore=0; sDir=null; document.getElementById('snakeScore').textContent='0';
-  randomFood();
-  sInterval = setInterval(drawSnakeFrame, 100);
+  sSnake = [{x:9*sBox,y:10*sBox}]; sScore=0; sDir=null; document.getElementById('snakeScore').textContent='0'; sRandomFood();
+  sInterval = setInterval(sDraw, 100);
 });
 
-/* draw snake preview loop (runs when not playing) */
-let sPreviewLoop = setInterval(()=>{
-  if(!sInterval) drawSnakePreview();
-}, 120);
+/* preview loop for snake */
+setInterval(()=>{ if(!sInterval) sDrawPreview(); }, 120);
 
+/* ===================== PADDLE ===================== */
+const padCanvas = document.getElementById('padCanvas'), padCtx = padCanvas.getContext('2d');
+let padWidth = 110, padHeight = 12, padX = (padCanvas.width - padWidth)/2;
+let ball = {x: padCanvas.width/2, y: padCanvas.height/2, r:8, vx:3, vy:-3};
+let padScore = 0, padInterval = null, speedMult = 1;
 
-/* ================= PADDLE (single-player pong/paddle) ================= */
-const padCanvas = document.getElementById('padCanvas');
-const padCtx = padCanvas.getContext('2d');
-
-let padWidth = 110, padHeight=12, padX= (padCanvas.width - padWidth)/2;
-let ball = { x: padCanvas.width/2, y: padCanvas.height/2, r:8, vx:3, vy:-3 };
-let padScore = 0, padInterval = null;
-let padSpeedMultiplier = 1;
-
-function drawPaddleFrame(){
-  padCtx.fillStyle='#07090a'; padCtx.fillRect(0,0,padCanvas.width,padCanvas.height);
-
-  // paddle
-  padCtx.fillStyle='#7fe2ff'; padCtx.fillRect(padX, padCanvas.height - 28, padWidth, padHeight);
-
-  // ball with glow
-  padCtx.save();
-  padCtx.shadowBlur = 12; padCtx.shadowColor='#ff6b6b';
-  padCtx.fillStyle='#ff7676'; padCtx.beginPath(); padCtx.arc(ball.x, ball.y, ball.r, 0, Math.PI*2); padCtx.fill();
-  padCtx.restore();
-
-  // score
-  padCtx.fillStyle='#fff'; padCtx.font='16px Poppins'; padCtx.fillText('Score: ' + padScore, 12, 22);
+function padDraw(){
+  padCtx.fillStyle = '#070809'; padCtx.fillRect(0,0,padCanvas.width,padCanvas.height);
+  padCtx.fillStyle = '#7fe2ff'; padCtx.fillRect(padX, padCanvas.height - 28, padWidth, padHeight);
+  padCtx.save(); padCtx.shadowBlur = 12; padCtx.shadowColor = '#ff6b6b'; padCtx.fillStyle = '#ff7676';
+  padCtx.beginPath(); padCtx.arc(ball.x, ball.y, ball.r, 0, Math.PI*2); padCtx.fill(); padCtx.restore();
+  padCtx.fillStyle = '#fff'; padCtx.font = '16px Poppins'; padCtx.fillText('Score: ' + padScore, 12, 22);
 }
 
-function stepPaddle(){
-  drawPaddleFrame();
+function padStep(){
+  padDraw();
+  ball.x += ball.vx * speedMult;
+  ball.y += ball.vy * speedMult;
 
-  ball.x += ball.vx * padSpeedMultiplier;
-  ball.y += ball.vy * padSpeedMultiplier;
-
-  // wall bounce
   if(ball.x - ball.r < 0 || ball.x + ball.r > padCanvas.width) ball.vx *= -1;
   if(ball.y - ball.r < 0) ball.vy *= -1;
 
-  // paddle collision
   const py = padCanvas.height - 28;
   if(ball.y + ball.r >= py && ball.y + ball.r <= py + padHeight + 6){
     if(ball.x >= padX && ball.x <= padX + padWidth){
       ball.vy = -Math.abs(ball.vy);
-      padScore++; document.getElementById('padScore').textContent = padScore;
-      padSpeedMultiplier += 0.03; playSound('score');
+      padScore++; document.getElementById('padScore').textContent = padScore; speedMult += 0.03; playSound('score');
     }
   }
 
-  // miss
   if(ball.y - ball.r > padCanvas.height + 6){
     clearInterval(padInterval); padInterval = null; playSound('death'); setTimeout(()=>alert('Paddle: Game Over!'), 40);
   }
 }
 
-/* paddle controls: mouse and touch */
-padCanvas.addEventListener('mousemove', (e)=>{
+/* paddle control */
+padCanvas.addEventListener('mousemove', e=>{
   const r = padCanvas.getBoundingClientRect();
   padX = Math.min(Math.max(e.clientX - r.left - padWidth/2, 0), padCanvas.width - padWidth);
 });
-padCanvas.addEventListener('touchmove', (e)=>{
+padCanvas.addEventListener('touchmove', e=>{
   const r = padCanvas.getBoundingClientRect();
-  const touch = e.touches[0];
-  padX = Math.min(Math.max(touch.clientX - r.left - padWidth/2, 0), padCanvas.width - padWidth);
+  const t = e.touches[0];
+  padX = Math.min(Math.max(t.clientX - r.left - padWidth/2, 0), padCanvas.width - padWidth);
   e.preventDefault();
 },{passive:false});
 
+/* start/restart paddle */
 document.getElementById('startPaddle').addEventListener('click', ()=>{
-  // init
   padX = (padCanvas.width - padWidth)/2;
-  ball.x = padCanvas.width/2; ball.y = padCanvas.height/2;
-  ball.vx = 3; ball.vy = -3; padScore = 0; padSpeedMultiplier = 1;
-  document.getElementById('padScore').textContent = 0;
+  ball = {x:padCanvas.width/2, y:padCanvas.height/2, r:8, vx:3, vy:-3};
+  padScore = 0; speedMult = 1; document.getElementById('padScore').textContent = '0';
   if(padInterval) clearInterval(padInterval);
-  padInterval = setInterval(stepPaddle, 16);
+  padInterval = setInterval(padStep, 16);
 });
 document.getElementById('restartPaddle').addEventListener('click', ()=>{
   if(padInterval) clearInterval(padInterval);
   padX = (padCanvas.width - padWidth)/2;
-  ball.x = padCanvas.width/2; ball.y = padCanvas.height/2;
-  ball.vx = 3; ball.vy = -3; padScore = 0; padSpeedMultiplier = 1;
-  document.getElementById('padScore').textContent = 0;
-  padInterval = setInterval(stepPaddle, 16);
+  ball = {x:padCanvas.width/2, y:padCanvas.height/2, r:8, vx:3, vy:-3};
+  padScore = 0; speedMult = 1; document.getElementById('padScore').textContent = '0';
+  padInterval = setInterval(padStep, 16);
 });
 
-/* draw paddle preview when paused */
-let padPreviewLoop = setInterval(()=>{
+/* paddle preview when idle */
+setInterval(()=>{
   if(!padInterval){
-    padCtx.fillStyle='#07090a'; padCtx.fillRect(0,0,padCanvas.width,padCanvas.height);
-    padCtx.fillStyle='#7fe2ff'; padCtx.fillRect((padCanvas.width-padWidth)/2, padCanvas.height - 28, padWidth, padHeight);
-    padCtx.beginPath(); padCtx.arc(padCanvas.width/2, padCanvas.height/2, ball.r, 0, Math.PI*2); padCtx.fillStyle='#ff7676'; padCtx.fill();
-    padCtx.fillStyle='#fff'; padCtx.font='16px Poppins'; padCtx.fillText('Preview', padCanvas.width - 90, 22);
+    padCtx.fillStyle = '#070809'; padCtx.fillRect(0,0,padCanvas.width,padCanvas.height);
+    padCtx.fillStyle = '#7fe2ff'; padCtx.fillRect((padCanvas.width - padWidth)/2, padCanvas.height - 28, padWidth, padHeight);
+    padCtx.beginPath(); padCtx.fillStyle = '#ff7676'; padCtx.arc(padCanvas.width/2, padCanvas.height/2, 8, 0, Math.PI*2); padCtx.fill();
+    padCtx.fillStyle = '#fff'; padCtx.font = '14px Poppins'; padCtx.fillText('Preview', padCanvas.width - 90, 22);
   }
-}, 100);
+}, 140);
 
-/* ================= DINO RUNNER ================= */
-const dCanvas = document.getElementById('dinoCanvas');
-const dCtx = dCanvas.getContext('2d');
-
-let dino = { x:50, y: dCanvas.height - 30, vy:0, jumping:false };
-let obs = { x: dCanvas.width + 40, w: 30, speed: 5 };
+/* ===================== DINO ===================== */
+const dCanvas = document.getElementById('dinoCanvas'), dCtx = dCanvas.getContext('2d');
+let dino = {x:50, y: dCanvas.height - 30, vy:0, jumping:false};
+let obstacle = { x: dCanvas.width + 60, w: 30, speed: 5 };
 let dScore = 0, dInterval = null;
 
-function drawDinoFrame(){
-  dCtx.fillStyle='#07090a'; dCtx.fillRect(0,0,dCanvas.width,dCanvas.height);
+function drawDino(){
+  dCtx.fillStyle = '#070809'; dCtx.fillRect(0,0,dCanvas.width,dCanvas.height);
+  dCtx.fillStyle = '#132029'; dCtx.fillRect(0, dCanvas.height - 20, dCanvas.width, 20);
+  dCtx.fillStyle = '#7fe2ff'; dCtx.fillRect(dino.x, dino.y - 30, 30, 30);
+  dCtx.fillStyle = '#ff4d4d'; dCtx.fillRect(obstacle.x, dCanvas.height - 30, obstacle.w, 30);
+  dCtx.fillStyle = '#fff'; dCtx.font = '16px Poppins'; dCtx.fillText('Score: ' + dScore, 12, 22);
 
-  // ground
-  dCtx.fillStyle='#132029'; dCtx.fillRect(0, dCanvas.height - 20, dCanvas.width, 20);
+  // Update physics
+  if(dino.jumping || dino.y < dCanvas.height - 30){ dino.vy += 0.8; dino.y += dino.vy; }
+  if(dino.y >= dCanvas.height - 30){ dino.y = dCanvas.height - 30; dino.vy = 0; dino.jumping = false; }
 
-  // dino
-  dCtx.fillStyle='#7fe2ff'; dCtx.fillRect(dino.x, dino.y - 30, 30, 30);
-
-  // obstacle
-  dCtx.fillStyle='#ff4d4d'; dCtx.fillRect(obs.x, dCanvas.height - 30, obs.w, 30);
-
-  // score
-  dCtx.fillStyle='#fff'; dCtx.font='16px Poppins'; dCtx.fillText('Score: ' + dScore, 12, 22);
-
-  // physics
-  if(dino.jumping){
-    dino.vy += 0.8; dino.y += dino.vy;
-  } else {
-    // ensure on ground
-    if(dino.y < dCanvas.height - 30) { dino.vy += 0.8; dino.y += dino.vy; }
-    if(dino.y >= dCanvas.height - 30) { dino.y = dCanvas.height - 30; dino.vy = 0; dino.jumping = false; }
+  // obstacle movement
+  obstacle.x -= obstacle.speed;
+  if(obstacle.x < -obstacle.w){
+    obstacle.x = dCanvas.width + (40 + Math.random()*150);
+    dScore++; playSound('score');
+    // increase difficulty slightly
+    obstacle.speed += Math.min(0.6, dScore/40);
   }
 
-  // move obstacle
-  obs.x -= obs.speed;
-
-  // reset obstacle and increment score
-  if(obs.x < -obs.w){
-    obs.x = dCanvas.width + (50 + Math.random()*150);
-    dScore += 1;
-    playSound('score');
-    // slowly increase obstacle speed
-    obs.speed += 0.2 * Math.min(2, dScore/30);
+  // collision test
+  const dRect = {x:dino.x, y:dino.y-30, w:30, h:30};
+  const oRect = {x:obstacle.x, y:dCanvas.height - 30, w:obstacle.w, h:30};
+  if(!(dRect.x > oRect.x + oRect.w || dRect.x + dRect.w < oRect.x || dRect.y > oRect.y + oRect.h || dRect.y + dRect.h < oRect.y)){
+    clearInterval(dInterval); dInterval = null; playSound('death'); setTimeout(()=>alert('Dino: Game Over!'),50);
   }
 
-  // collision detection
-  const dinoRect = { x: dino.x, y: dino.y - 30, w: 30, h: 30 };
-  const obsRect = { x: obs.x, y: dCanvas.height - 30, w: obs.w, h: 30 };
-  if(rectIntersect(dinoRect, obsRect)){
-    clearInterval(dInterval); dInterval = null; playSound('death'); setTimeout(()=>alert('Dino: Game Over!'), 30);
-  }
-
-  // update DOM score
   document.getElementById('dinoScore').textContent = dScore;
-}
-
-function rectIntersect(a,b){
-  return !(a.x > b.x + b.w || a.x + a.w < b.x || a.y > b.y + b.h || a.y + a.h < b.y);
 }
 
 function dinoJump(){
@@ -449,62 +429,47 @@ function dinoJump(){
   }
 }
 
+/* start/restart dino */
 document.getElementById('startDino').addEventListener('click', ()=>{
-  // init
-  dino = { x:50, y: dCanvas.height - 30, vy:0, jumping:false };
-  obs = { x: dCanvas.width + 40, w: 30, speed: 5 };
-  dScore = 0; document.getElementById('dinoScore').textContent = 0;
+  dino = {x:50, y: dCanvas.height - 30, vy:0, jumping:false};
+  obstacle = { x: dCanvas.width + 60, w: 30, speed: 5 };
+  dScore = 0; document.getElementById('dinoScore').textContent = '0';
   if(dInterval) clearInterval(dInterval);
-  dInterval = setInterval(drawDinoFrame, 16);
+  dInterval = setInterval(drawDino, 16);
 });
 document.getElementById('restartDino').addEventListener('click', ()=>{
   if(dInterval) clearInterval(dInterval);
-  dino = { x:50, y: dCanvas.height - 30, vy:0, jumping:false };
-  obs = { x: dCanvas.width + 40, w: 30, speed: 5 };
-  dScore = 0; document.getElementById('dinoScore').textContent = 0;
-  dInterval = setInterval(drawDinoFrame, 16);
+  dino = {x:50, y: dCanvas.height - 30, vy:0, jumping:false};
+  obstacle = { x: dCanvas.width + 60, w: 30, speed: 5 };
+  dScore = 0; document.getElementById('dinoScore').textContent = '0';
+  dInterval = setInterval(drawDino, 16);
 });
 
-/* mobile jump touch: button already calls dinoJump() */
+/* mobile button triggers use dinoJump() above */
 
-/* Preview loop for Dino (when not playing) */
-let dPreviewLoop = setInterval(()=>{
-  if(!dInterval){
-    dCtx.fillStyle='#07090a'; dCtx.fillRect(0,0,dCanvas.width,dCanvas.height);
-    dCtx.fillStyle='#132029'; dCtx.fillRect(0, dCanvas.height - 20, dCanvas.width, 20);
-    dCtx.fillStyle='#7fe2ff'; dCtx.fillRect(50, dCanvas.height - 30, 30, 30);
-    dCtx.fillStyle='#fff'; dCtx.font='14px Poppins'; dCtx.fillText('Preview - Tap ▶ to start', 10, 20);
-  }
-}, 180);
-
-/* Keyboard listeners */
-document.addEventListener('keydown', (e)=>{
-  // Snake arrow keys already handled via snakeMove/keydown inside earlier code
-  if(e.code === 'Space') {
-    // space used for Dino jump
-    dinoJump();
-  }
-  // also allow W/A/S/D for snake
-  if(e.key === 'w' || e.key === 'W') snakeMove('UP');
-  if(e.key === 'a' || e.key === 'A') snakeMove('LEFT');
-  if(e.key === 's' || e.key === 'S') snakeMove('DOWN');
-  if(e.key === 'd' || e.key === 'D') snakeMove('RIGHT');
+/* small keyboard mapping */
+document.addEventListener('keydown', e=>{
+  if(e.code === 'Space'){ dinoJump(); }
+  // WASD + arrows for snake already supported via snakeMove/keydown listeners above
 });
 
-/* initial previews draw (ensure canvases sized correctly) */
-function initialDraw(){
-  // Snake preview call
-  drawSnakePreview();
-  // paddle & dino preview handled by their loops already
-}
-initialDraw();
+/* initial previews */
+(function initialPreviews(){
+  // draw immediate preview frames (they'll continue in their preview intervals)
+  sDrawPreview();
+  // pad preview drawn by interval earlier
+  dCtx.fillStyle = '#070809'; dCtx.fillRect(0,0,dCanvas.width,dCanvas.height);
+  dCtx.fillStyle = '#7fe2ff'; dCtx.fillRect(50, dCanvas.height - 30, 30, 30);
+  dCtx.fillStyle = '#fff'; dCtx.font = '14px Poppins'; dCtx.fillText('Preview - Click Start', 10, 20);
+})();
 
-/* small safety: stop audio on page hidden to avoid CPU*/
+/* Pause gameplay on visibility change */
 document.addEventListener('visibilitychange', ()=>{
   if(document.hidden){
-    Object.values(sounds).forEach(a=>{ try{ a.pause(); a.currentTime=0; }catch(e){} });
-    clearInterval(sInterval); clearInterval(padInterval); clearInterval(dInterval);
-    sInterval = padInterval = dInterval = null;
+    if(sInterval) { clearInterval(sInterval); sInterval = null; }
+    if(padInterval) { clearInterval(padInterval); padInterval = null; }
+    if(dInterval) { clearInterval(dInterval); dInterval = null; }
+    Object.values(sounds).forEach(a=>{ try{ a.pause(); a.currentTime = 0; }catch(e){} });
   }
 });
 </script>
