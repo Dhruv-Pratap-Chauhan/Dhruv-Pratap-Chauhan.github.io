@@ -1,214 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dhruv Pratap Chauhan | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhruv Pratap Chauhan | Portfolio</title>
 
-  <!-- # GOOGLE FONTS -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- # STYLES -->
-  <style>
-    /* # GENERAL RESET */
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:'Poppins',sans-serif; overflow-x:hidden; color:#fff; background:#0b1216; scroll-behavior:smooth;}
+<style>
+/* ================= GENERAL ================= */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif; background:#0b1216; color:#fff; overflow-x:hidden; scroll-behavior:smooth;}
+a{text-decoration:none; color:#7fe2ff;}
+.overlay{position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); z-index:-1;}
+.typing{border-right:2px solid #7fe2ff; display:inline-block; animation:blink .7s infinite;}
+@keyframes blink{50%{border-color:transparent;}}
 
-    /* # HEADER */
-    header{position:sticky; top:0; z-index:100; text-align:center; padding:3rem 1rem; backdrop-filter:blur(6px); background:rgba(0,0,0,0.5);}
-    header h1{font-size:2.8rem; font-weight:700; letter-spacing:.5px;}
-    header p{margin-top:.5rem; font-size:1.1rem; color:#7fe2ff;}
-    .typing{border-right:3px solid #7fe2ff; display:inline-block; animation:blink .7s infinite;}
+/* ================= HEADER ================= */
+header{position:sticky;top:0; z-index:100; text-align:center; padding:2rem 1rem; backdrop-filter:blur(6px); background:rgba(0,0,0,0.55);}
+header h1{font-size:2rem; font-weight:700;}
+header p{margin-top:.4rem; font-size:1rem; color:#7fe2ff;}
+nav{margin-top:0.8rem; display:flex; justify-content:center; gap:.5rem; flex-wrap:wrap;}
+.btn{padding:.55rem 1rem; border-radius:10px; font-weight:600; border:none; cursor:pointer; background:rgba(127,226,255,0.15); color:#fff; backdrop-filter:blur(6px); border:1px solid rgba(127,226,255,0.3); transition:.3s;}
+.btn:hover{background:rgba(127,226,255,0.3); color:#0b1216; box-shadow:0 0 15px rgba(127,226,255,0.6);}
+.btn.ghost{background:transparent; border:1px solid rgba(127,226,255,0.3);}
 
-    /* # NAVIGATION */
-    nav{margin-top:1rem; display:flex; justify-content:center; gap:.75rem; flex-wrap:wrap;}
-    .btn{
-      border:none; padding:.75rem 1.2rem; border-radius:12px; font-weight:600; cursor:pointer;
-      background:rgba(127,226,255,0.15); color:#fff; backdrop-filter:blur(6px);
-      border:1px solid rgba(127,226,255,0.3); transition:.3s ease;
-    }
-    .btn:hover{ background:rgba(127,226,255,0.3); color:#0b1216; box-shadow:0 0 20px rgba(127,226,255,0.6);}
-    .btn.ghost{ background:transparent; border:1px solid rgba(127,226,255,0.3); }
+/* ================= CONTAINER ================= */
+#container{width:100%; overflow:hidden; position:relative;}
+section{width:100%; min-height:80vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; padding:2rem; transition:transform .7s ease;}
+section h2{margin-bottom:1rem; font-size:1.8rem; display:flex; align-items:center; gap:.5rem;}
+section h2::before{content:""; width:8px; height:8px; border-radius:50%; background:conic-gradient(from 0deg,#7fe2ff,#7fffcb,#7fe2ff); box-shadow:0 0 10px #7fe2ffbb;}
+section p{max-width:600px; text-align:center; line-height:1.5rem; font-size:1rem;}
 
-    /* # SECTIONS */
-    section{
-      width:100%; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
-      padding:5rem 2rem; position:relative; overflow:hidden;
-      transition:transform .7s ease, opacity .7s ease;
-    }
-    section p{max-width:700px; text-align:center; margin-top:1rem; line-height:1.6rem; font-size:1.1rem;}
-    section h2{margin-bottom:1rem; font-size:2rem; display:flex; align-items:center; gap:.6rem;}
-    section h2::before{content:""; width:10px; height:10px; border-radius:50%; background:conic-gradient(from 0deg,#7fe2ff,#7fffcb,#7fe2ff); box-shadow:0 0 12px #7fe2ffbb;}
+/* ================= BACKGROUND GIF ================= */
+.bg{position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0.25;}
 
-    /* # BACKGROUND WAIFU GIFS */
-    .bg{
-      position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0.3;
-    }
-    .overlay{
-      position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); z-index:-1;
-    }
+/* ================= PROJECTS ================= */
+.projects a{display:inline-block; margin:.3rem; padding:.5rem .9rem; border-radius:8px; background:#7fe2ff; color:#0f2330; font-weight:600; box-shadow:0 5px 12px #7fe2ff55; transition:.2s;}
+.projects a:hover{transform:translateY(-2px) scale(1.03); background:#fff;}
 
-    /* # PROJECTS */
-    .projects a{
-      display:inline-block; margin:.5rem; padding:.75rem 1rem; border-radius:10px;
-      background:#7fe2ff; color:#0f2330; font-weight:600; text-decoration:none; transition:.2s; box-shadow:0 6px 14px #7fe2ff55;
-    }
-    .projects a:hover{transform:translateY(-2px) scale(1.03); background:#fff;}
+/* ================= GAMES ================= */
+#game-tabs{display:flex; justify-content:center; gap:.3rem; margin:1rem 0; flex-wrap:wrap;}
+.game{display:none; text-align:center;}
+.game.active{display:block;}
+canvas{background:#0c1216; border:2px solid #7fe2ff; border-radius:10px; display:block; margin:0.5rem auto;}
+.scorebar{display:flex; gap:.7rem; justify-content:center; align-items:center; margin:.2rem 0 .4rem 0;}
+.score{font-weight:600; color:#aef;}
+.status{color:#cfe; min-height:1rem; font-size:.95rem;}
 
-    /* # GAMES HUB */
-    #game-tabs{display:flex; justify-content:center; gap:.5rem; margin:1rem 0; flex-wrap:wrap;}
-    .game{display:none; text-align:center;}
-    .game.active{display:block;}
-    canvas{background:#0c1216; border:2px solid #7fe2ff; border-radius:12px; display:block; margin:1rem auto;}
-    .scorebar{display:flex; gap:1rem; justify-content:center; align-items:center; margin:.25rem 0 .5rem 0;}
-    .score{font-weight:700; color:#aef;}
-    .status{color:#cfe; min-height:1.25rem;}
-
-    /* # FOOTER */
-    footer{text-align:center; padding:2rem; margin:3rem 0 2rem; color:#bcdde8;}
-
-    /* # ANIMATIONS */
-    @keyframes blink{50%{border-color:transparent;}}
-  </style>
+/* ================= FOOTER ================= */
+footer{text-align:center; padding:1.5rem; color:#bcdde8; font-size:.9rem;}
+</style>
 </head>
+
 <body>
 
-  <!-- # HEADER -->
-  <header>
-    <h1>✨ Dhruv Pratap Chauhan ✨</h1>
-    <p><span id="typing" class="typing"></span></p>
-    <nav>
-      <button class="btn" onclick="switchTab(0)">About</button>
-      <button class="btn" onclick="switchTab(1)">Projects</button>
-      <button class="btn" onclick="switchTab(2)">Games</button>
-      <button class="btn" onclick="switchTab(3)">Contact</button>
-    </nav>
-  </header>
+<!-- ================= HEADER ================= -->
+<header>
+  <h1>✨ Dhruv Pratap Chauhan ✨</h1>
+  <p><span id="typing" class="typing"></span></p>
+  <nav>
+    <button class="btn" onclick="switchTab(0)">About</button>
+    <button class="btn" onclick="switchTab(1)">Projects</button>
+    <button class="btn" onclick="switchTab(2)">Games</button>
+    <button class="btn" onclick="switchTab(3)">Contact</button>
+  </nav>
+</header>
 
-  <!-- # CONTAINER FOR SECTIONS -->
-  <div id="container" style="width:100%; overflow:hidden; position:relative;">
+<!-- ================= SECTIONS ================= -->
+<div id="container">
 
-    <!-- # ABOUT SECTION -->
-    <section style="background-image:url('https://i.imgur.com/6rP5xDi.gif');">
-      <div class="overlay"></div>
-      <h2>About Me</h2>
-      <p>Hi! I'm <strong>Dhruv</strong>, a fresher at <b>UPES Dehradun</b> 🏫. I love learning, building, and making the web interactive 🚀</p>
-      <p>Location: 📍 UPES Dehradun</p>
-    </section>
+  <!-- # ABOUT -->
+  <section style="background-image:url('https://i.imgur.com/6rP5xDi.gif'); background-size:cover; background-position:center;">
+    <div class="overlay"></div>
+    <h2>About Me</h2>
+    <p>Hi! I'm <strong>Dhruv</strong>, a fresher at <b>UPES Dehradun</b> 🏫. I love learning, building, and making web interactive 🚀</p>
+    <p>Location: 📍 UPES Dehradun</p>
+  </section>
 
-    <!-- # PROJECTS SECTION -->
-    <section style="background-image:url('https://i.imgur.com/X6l5Q9V.gif');">
-      <div class="overlay"></div>
-      <h2>Projects</h2>
-      <div class="projects">
-        <a href="https://github.com/DHRUV-PRATAP-CHAUHAN" target="_blank">🌟 GitHub Profile</a>
-        <a href="#">⚡ Beginner Portfolio</a>
-        <a href="#">🎮 Game Collection</a>
+  <!-- # PROJECTS -->
+  <section style="background-image:url('https://i.imgur.com/X6l5Q9V.gif'); background-size:cover; background-position:center;">
+    <div class="overlay"></div>
+    <h2>Projects</h2>
+    <div class="projects">
+      <a href="https://github.com/DHRUV-PRATAP-CHAUHAN" target="_blank">🌟 GitHub Profile</a>
+      <a href="#">⚡ Beginner Portfolio</a>
+      <a href="#">🎮 Game Collection</a>
+    </div>
+  </section>
+
+  <!-- # GAMES -->
+  <section style="background-image:url('https://i.imgur.com/x8nJ1r0.gif'); background-size:cover; background-position:center;">
+    <div class="overlay"></div>
+    <h2>🎮 Mini Game Hub</h2>
+    <div id="game-tabs">
+      <button class="btn ghost" onclick="switchGame('snake')">🐍 Snake</button>
+      <button class="btn ghost" onclick="switchGame('tic')">❌⭕ Tic-Tac-Toe</button>
+      <button class="btn ghost" onclick="switchGame('paddle')">🕹️ Paddle</button>
+    </div>
+
+    <!-- # SNAKE -->
+    <div id="snake" class="game active">
+      <div class="scorebar">
+        <div class="score">Score: <span id="snakeScore">0</span></div>
+        <button class="btn" onclick="restartSnake()">🔄 Restart Snake</button>
       </div>
-    </section>
+      <div class="status" id="snakeStatus"></div>
+      <canvas id="snakeCanvas" width="350" height="350"></canvas>
+    </div>
 
-    <!-- # GAMES HUB SECTION -->
-    <section style="background-image:url('https://i.imgur.com/x8nJ1r0.gif');">
-      <div class="overlay"></div>
-      <h2>🎮 Mini Game Hub</h2>
-      <div id="game-tabs">
-        <button class="btn ghost" onclick="switchGame('snake')">🐍 Snake</button>
-        <button class="btn ghost" onclick="switchGame('tic')">❌⭕ Tic-Tac-Toe</button>
-        <button class="btn ghost" onclick="switchGame('paddle')">🕹️ Paddle</button>
+    <!-- # TIC-TAC-TOE -->
+    <div id="tic" class="game">
+      <div class="scorebar">
+        <div class="score">X Wins: <span id="xWins">0</span></div>
+        <div class="score">O Wins: <span id="oWins">0</span></div>
+        <div class="score">Draws: <span id="draws">0</span></div>
+        <button class="btn" onclick="restartTic()">🔄 Restart Tic-Tac-Toe</button>
       </div>
+      <div class="status" id="ticStatus"></div>
+      <canvas id="ticCanvas" width="330" height="330"></canvas>
+    </div>
 
-      <!-- # SNAKE -->
-      <div id="snake" class="game active">
-        <div class="scorebar">
-          <div class="score">Score: <span id="snakeScore">0</span></div>
-          <button class="btn" onclick="restartSnake()">🔄 Restart Snake</button>
-        </div>
-        <div class="status" id="snakeStatus"></div>
-        <canvas id="snakeCanvas" width="420" height="420"></canvas>
+    <!-- # PADDLE -->
+    <div id="paddle" class="game">
+      <div class="scorebar">
+        <div class="score">Score: <span id="padScore">0</span></div>
+        <button class="btn" onclick="restartPaddle()">🔄 Restart Paddle</button>
       </div>
+      <div class="status" id="padStatus"></div>
+      <canvas id="padCanvas" width="450" height="300"></canvas>
+    </div>
+  </section>
 
-      <!-- # TIC-TAC-TOE -->
-      <div id="tic" class="game">
-        <div class="scorebar">
-          <div class="score">X Wins: <span id="xWins">0</span></div>
-          <div class="score">O Wins: <span id="oWins">0</span></div>
-          <div class="score">Draws: <span id="draws">0</span></div>
-          <button class="btn" onclick="restartTic()">🔄 Restart Tic-Tac-Toe</button>
-        </div>
-        <div class="status" id="ticStatus"></div>
-        <canvas id="ticCanvas" width="330" height="330"></canvas>
-      </div>
+  <!-- # CONTACT -->
+  <section style="background-image:url('https://i.imgur.com/8qAzmbb.gif'); background-size:cover; background-position:center;">
+    <div class="overlay"></div>
+    <h2>Contact</h2>
+    <p>📧 Email: <a href="mailto:dhruvpratapchauhan7@gmail.com">dhruvpratapchauhan7@gmail.com</a></p>
+    <p>📸 Instagram: <a href="https://instagram.com/dhruvpratapchauhan" target="_blank">@dhruvpratapchauhan</a></p>
+    <p>🐦 Twitter: <a href="https://twitter.com/0xrajputdhruv" target="_blank">@0xrajputdhruv</a></p>
+    <p>📨 Telegram: <a href="https://t.me/protoic" target="_blank">@protoic</a></p>
+  </section>
 
-      <!-- # PADDLE -->
-      <div id="paddle" class="game">
-        <div class="scorebar">
-          <div class="score">Score: <span id="padScore">0</span></div>
-          <button class="btn" onclick="restartPaddle()">🔄 Restart Paddle</button>
-        </div>
-        <div class="status" id="padStatus"></div>
-        <canvas id="padCanvas" width="500" height="320"></canvas>
-      </div>
-    </section>
+</div>
 
-    <!-- # CONTACT SECTION -->
-    <section style="background-image:url('https://i.imgur.com/8qAzmbb.gif');">
-      <div class="overlay"></div>
-      <h2>Contact</h2>
-      <p>📧 Email: <a href="mailto:dhruvpratapchauhan7@gmail.com" style="color:#7fe2ff;">dhruvpratapchauhan7@gmail.com</a></p>
-      <p>📸 Instagram: <a href="https://instagram.com/dhruvpratapchauhan" target="_blank" style="color:#7fe2ff;">@dhruvpratapchauhan</a></p>
-      <p>🐦 Twitter: <a href="https://twitter.com/0xrajputdhruv" target="_blank" style="color:#7fe2ff;">@0xrajputdhruv</a></p>
-      <p>📨 Telegram: <a href="https://t.me/protoic" target="_blank" style="color:#7fe2ff;">@protoic</a></p>
-    </section>
+<!-- ================= FOOTER ================= -->
+<footer>© 2025 Dhruv Pratap Chauhan | Built with 💙 GitHub Pages</footer>
 
-  </div>
+<script>
+/* ---------- TYPING EFFECT ---------- */
+const roles=["Fresher","Learner","Explorer","Developer"];
+let i=0,j=0,del=false; 
+(function type(){
+  const cur=roles[i]; document.getElementById('typing').textContent=cur.substring(0,j);
+  if(!del && j<cur.length){ j++; setTimeout(type,120);}
+  else if(del && j>0){ j--; setTimeout(type,70);}
+  else if(!del && j===cur.length){ del=true; setTimeout(type,900);}
+  else{ del=false; i=(i+1)%roles.length; setTimeout(type,180);}
+})();
 
-  <!-- # FOOTER -->
-  <footer>© 2025 Dhruv Pratap Chauhan | Built with 💙 GitHub Pages</footer>
+/* ---------- TAB SWITCH ---------- */
+function switchTab(idx){
+  const secs=document.querySelectorAll('#container section');
+  secs.forEach((s,i)=>{ s.style.transform=`translateX(${(i-idx)*100}%)`; });
+  document.querySelectorAll('.btn').forEach((b,i)=>b.classList.toggle('active', i===idx));
+}
 
-  <!-- # SCRIPTS -->
-  <script>
-    /* ---------- TYPING EFFECT ---------- */
-    const roles=["Fresher","Learner","Explorer","Developer"];
-    let i=0,j=0,del=false; 
-    (function type(){
-      const cur=roles[i]; document.getElementById('typing').textContent=cur.substring(0,j);
-      if(!del && j<cur.length){ j++; setTimeout(type,120);}
-      else if(del && j>0){ j--; setTimeout(type,70);}
-      else if(!del && j===cur.length){ del=true; setTimeout(type,900);}
-      else{ del=false; i=(i+1)%roles.length; setTimeout(type,180);}
-    })();
+/* ---------- GAME SWITCH ---------- */
+function switchGame(id){
+  document.querySelectorAll('.game').forEach(g=>g.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
 
-    /* ---------- TAB SWITCH ---------- */
-    function switchTab(idx){
-      const secs=document.querySelectorAll('#container section');
-      secs.forEach((s,i)=>{ s.style.transform=`translateX(${(i-idx)*100}%)`; });
-      document.querySelectorAll('.btn').forEach((b,i)=>b.classList.toggle('active', i===idx));
-    }
+/* ---------- SFX ---------- */
+let actx; function ensureCtx(){ if(!actx){ actx=new (window.AudioContext||window.webkitAudioContext)(); } }
+function beep({freq=440,duration=120,type='sine',volume=.05}={}){
+  ensureCtx(); const o=actx.createOscillator(), g=actx.createGain();
+  o.type=type; o.frequency.value=freq; g.gain.value=volume; o.connect(g); g.connect(actx.destination); o.start(); o.stop(actx.currentTime+duration/1000);
+}
+function uiClick(){ beep({freq:700,type:'square',duration:80,volume:.06}); }
+function uiSuccess(){ beep({freq:900,type:'triangle',duration:120,volume:.07}); }
+function uiError(){ beep({freq:160,type:'sawtooth',duration:200,volume:.08}); }
+function uiTick(){ beep({freq:500,type:'triangle',duration:60,volume:.05}); }
 
-    /* ---------- GAME SWITCH ---------- */
-    function switchGame(id){
-      document.querySelectorAll('.game').forEach(g=>g.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
+/* ---------- PLACEHOLDER FOR GAMES ---------- */
+// Copy your previous Snake, Tic-Tac-Toe, Paddle JS here
+// Include restartSnake(), restartTic(), restartPaddle(), etc.
 
-    /* ---------- SFX ---------- */
-    let actx; function ensureCtx(){ if(!actx){ actx=new (window.AudioContext||window.webkitAudioContext)(); } }
-    function beep({freq=440,duration=120,type='sine',volume=.05}={}){
-      ensureCtx(); const o=actx.createOscillator(), g=actx.createGain();
-      o.type=type; o.frequency.value=freq; g.gain.value=volume;
-      o.connect(g); g.connect(actx.destination);
-      o.start(); o.stop(actx.currentTime+duration/1000);
-    }
-    function uiClick(){ beep({freq:700,type:'square',duration:80,volume:.06}); }
-    function uiSuccess(){ beep({freq:900,type:'triangle',duration:120,volume:.07}); }
-    function uiError(){ beep({freq:160,type:'sawtooth',duration:200,volume:.08}); }
-    function uiTick(){ beep({freq:500,type:'triangle',duration:60,volume:.05}); }
-
-    /* ---------- INITIALIZE GAMES ---------- */
-    // Add Snake, Tic-Tac-Toe, Paddle logic same as before (copy from previous code)
-    // Use restartSnake(), restartTic(), restartPaddle() etc.
-
-    window.addEventListener('load',()=>{ switchTab(0); });
-  </script>
+</script>
 </body>
 </html>
