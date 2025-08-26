@@ -44,6 +44,14 @@ section {
   transition: all 0.8s ease;
 }
 section.show { opacity:1; transform:translateY(0); }
+.map-preview {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.map-preview:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(97,218,251,0.5);
+}
+
 h2 { margin-bottom:1rem; font-size:1.8rem; border-left:5px solid #61dafb; padding-left:10px; }
 
 .projects a {
@@ -94,8 +102,11 @@ canvas { background:#111; border:2px solid #61dafb; margin:1rem auto; display:bl
   <img
     src="https://files.catbox.moe/q7o8fs.jpg"
     alt="UPES Dehradun Location"
-    style="width:100%; border-radius:12px; margin-top:1rem;">
+    style="width:100%; border-radius:12px; margin-top:1rem;"
+    class="map-preview"
+    title="Click to open map">
 </a>
+
 </section>
 
 <section id="projects">
